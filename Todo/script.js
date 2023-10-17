@@ -41,22 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const taskContainer = newToDoContainer.querySelector(".Tasks-container");
 
 
-      taskContainer.addEventListener("dragstart", function (event) {
-        event.dataTransfer.setData("text/plain", event.target.id);
-        event.target.style.opacity = "0.5";
-      });
-
-      taskContainer.addEventListener("dragover", function (event) {
-        event.preventDefault();
-      });
-
-      taskContainer.addEventListener("drop", function (event) {
-        event.preventDefault();
-        const taskId = event.dataTransfer.getData("text/plain");
-        const draggedTask = document.getElementById(taskId);
-        taskContainer.appendChild(draggedTask);
-        draggedTask.style.opacity = "1";
-      });
+      
 
 
 
