@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       saveToLocalStorage(newToDoContainer.id, {
         header: "",
         tasks: []
-    });
+      });
 
 
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const taskContainer = newToDoContainer.querySelector(".Tasks-container");
 
 
-      
+
 
 
 
@@ -63,14 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
             newTask.classList.toggle('bg-green-500');
             newTask.classList.toggle('bg-neutral-800');
           });
-          newTask.addEventListener("keydown", function(event) {
+          newTask.addEventListener("keydown", function (event) {
             // Check if the pressed key is the delete key (keycode 46)
             if (event.keyCode === 46) {
-                // Remove the task if the delete key is pressed
-                taskContainer.removeChild(newTask);
+              // Remove the task if the delete key is pressed
+              taskContainer.removeChild(newTask);
             }
-        });
-      
+          });
+
           taskContainer.appendChild(newTask);
         } else if (event.target.classList.contains("delete-button")) {
           document.body.removeChild(newToDoContainer);
@@ -78,17 +78,17 @@ document.addEventListener("DOMContentLoaded", function () {
         taskContainer.addEventListener("click", e => {
           // Mark task as complete
           if (e.target.classList.contains('complete-task')) {
-              const taskId = e.target.parentElement.id;
-              const taskData = JSON.parse(localStorage.getItem(taskId));
-              // Modify taskData.tasks based on the completion status
-              localStorage.setItem(taskId, JSON.stringify(taskData));
+            const taskId = e.target.parentElement.id;
+            const taskData = JSON.parse(localStorage.getItem(taskId));
+            // Modify taskData.tasks based on the completion status
+            localStorage.setItem(taskId, JSON.stringify(taskData));
           }
 
           // Delete to-do
           if (e.target.classList.contains('delete-button')) {
-              const toDoId = e.target.parentElement.id;
-              localStorage.removeItem(toDoId);
-              e.target.parentElement.remove();
+            const toDoId = e.target.parentElement.id;
+            localStorage.removeItem(toDoId);
+            e.target.parentElement.remove();
           }
 
         });
